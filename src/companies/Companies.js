@@ -4,9 +4,6 @@ import CompanyCard from "./CompanyCard"
 import Grid from '@mui/material/Grid'; 
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
-
-
-
 import "./Companies.css"
 
 const Companies = () => {

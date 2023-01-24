@@ -2,6 +2,8 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../home/Home";
 import Companies from "../companies/Companies";
+import CompanyDetail from "../companies/CompanyDetail";
+
 import Jobs from "../jobs/Jobs";
 import Profile from "../profiles/Profile";
 import Login from "../auth/Login";
@@ -15,7 +17,7 @@ function NavRoutes({ login, signup }) {
       <Routes>
         <Route exact path="/" element={<Home />}></Route>
         <Route exact path="/companies" element={<Companies />}></Route>
-        <Route exact path="/companies/:name" element={<Companies name="name" />}></Route>
+        <Route exact path="/companies/:handle" element={<CompanyDetail handle="handle" />}></Route>
         <Route exact path="/jobs" element={<Jobs />}></Route>
         <Route exact path="/jobs/:title" element={<Jobs title="title" />}></Route>
         <Route exact path="/login" element={<Login username="username" />}></Route>

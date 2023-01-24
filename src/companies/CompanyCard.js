@@ -13,7 +13,6 @@ import "./CompanyCard.css"
  */
 
 const CompanyCard = ({ name, description, logoUrl, handle }) => {
-  console.log(logoUrl)
   return (
     <Link to={`/companies/${handle}`} className="CompanyCard">
       <Card sx={{ minWidth: 275 }}>
