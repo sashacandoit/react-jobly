@@ -18,15 +18,16 @@ const CompanyCard = ({ name, description, logoUrl, handle }) => {
     <Link to={`/companies/${handle}`} className="CompanyCard">
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
-          <Typography variant="h5" component="div">
-            {name}
-          </Typography>
           <CardMedia
             component="img"
             height="150"
             image={logoUrl}
             alt={name}
           />
+          <Typography variant="h5" component="div">
+            {name}
+          </Typography>
+          
           <Typography variant="body2">
             {description}
           </Typography>

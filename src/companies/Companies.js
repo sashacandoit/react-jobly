@@ -26,9 +26,14 @@ const Companies = () => {
       <CssBaseline />
       <Container maxWidth="med">
         <h2 className="Companies-title">Companies List</h2>
-        <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid container
+          direction="row"
+          justifyContent="flex-start"
+          alignItems="flex-start"
+          spacing={2}
+          columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           {companies.map(c => (
-            <Grid xs={3}>
+            <Grid item xs={3}>
               <CompanyCard
                 key={c.handle}
                 name={c.name}
