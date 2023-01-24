@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react"
 import JoblyApi from "../api";
+import CompanyCard from "./CompanyCard"
+import "./Companies.css"
 
 const Companies = () => {
   const [companies, setCompanies] = useState([]);
@@ -14,9 +16,20 @@ const Companies = () => {
   }
 
   return (
-    <div>
-      Companies List
-      {companies.map(company => (company.name))}
+    <div className="Companies">
+      <h2 className="Companies-title">Companies List</h2>
+      <div className="Companies-cards">
+        {companies.map(c => (
+          <CompanyCard
+            key={c.handle}
+            name={c.name}
+            handle={c.handle}
+            description={c.description}
+            logoUrl={c.logoUrl}
+          />
+        ))}
+      </div>
+      
     </div>
   )
 }

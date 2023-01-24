@@ -1,0 +1,27 @@
+.CompanyCard-container {
+  width: 100%;
+}
+.CompanyCard {
+  text-decoration: none;
+  float: left;
+}
+
+.CompanyCard-card {
+  width: 20vw;
+  padding: .8em;
+}
+
+.CompanyCard-title {
+  color: white;
+}
+
+.CompanyCard-info {
+  font-size: 14px;
+  color: whitesmoke;
+}
+
+.CompanyCard-img {
+  font-size: small;
+  font-style: italic;
+  color: gray;
+}
