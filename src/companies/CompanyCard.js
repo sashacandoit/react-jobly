@@ -1,5 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 import "./CompanyCard.css"
 
 /** Is rendered by CompanyList to show a "card" for each company
@@ -12,11 +16,22 @@ const CompanyCard = ({ name, description, logoUrl, handle }) => {
   console.log(logoUrl)
   return (
     <Link to={`/companies/${handle}`} className="CompanyCard">
-      <div className="CompanyCard-card">
-        <h5 className="CompanyCard-title">{name}</h5>
-        <img className="CompanyCard-img" src={`${logoUrl}`} alt={name} />
-        <p className="CompanyCard-info">{description}</p>
-      </div>
+      <Card sx={{ minWidth: 275 }}>
+        <CardContent>
+          <Typography variant="h5" component="div">
+            {name}
+          </Typography>
+          <CardMedia
+            component="img"
+            height="150"
+            image={logoUrl}
+            alt={name}
+          />
+          <Typography variant="body2">
+            {description}
+          </Typography>
+        </CardContent>
+      </Card>
     </Link>
   )
 }
