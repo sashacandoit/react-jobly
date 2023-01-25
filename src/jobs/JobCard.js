@@ -5,27 +5,32 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
-const JobCard = ({id, title, salary, equity, company}) => {
+const JobCard = ({ id, title, salary, equity, company, companyHandle }) => {
   return (
-    <Link to={`/jobs/${id}`} className="CompanyCard">
-      <Card sx={{ minWidth: 275 }}>
-        <CardContent>
-          {/* <CardMedia
-            component="img"
-            height="150"
-            image={company.logoUrl}
-            alt={company.name}
-          /> */}
-          <Typography variant="h5" component="div">
-            {title}
-          </Typography>
+    <Card sx={{ minWidth: 25 }}>
+      <CardContent>
+        {/* <CardMedia
+          component="img"
+          height="150"
+          image={company.logoUrl}
+          alt={company.name}
+        /> */}
+        <Typography variant="h5" component="div">
+          {title}
+        </Typography>
 
+        <Typography variant="body2">
+          {salary}
+        </Typography>
+        
+        <Link to={`/companies/${companyHandle}`}>
           <Typography variant="body2">
-            {salary}
+            {company}
           </Typography>
-        </CardContent>
-      </Card>
-    </Link>
+        </Link>
+        
+      </CardContent>
+    </Card>
   )
 }
 
