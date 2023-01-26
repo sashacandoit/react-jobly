@@ -6,12 +6,12 @@ main {
   /* align-items: center; */
   padding-top: 5vh;
   overflow: scroll;
-  color: white;
+  color: #282c34;
 }
 
 
 .App-header {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
   color: white;
