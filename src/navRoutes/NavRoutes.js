@@ -22,8 +22,8 @@ function NavRoutes({ login, signup }) {
         <Route exact path="/companies/:handle" element={<CompanyDetail handle="handle" />}></Route>
         <Route exact path="/jobs" element={<Jobs />}></Route>
         <Route exact path="/jobs/:id" element={<JobDetail id="id" />}></Route>
-        <Route exact path="/login" element={<Login username="username" />}></Route>
-        <Route exact path="/signup" element={<Signup username="username" />}></Route>
+        <Route exact path="/login" element={<Login username="username" login={login} />}></Route>
+        <Route exact path="/signup" element={<Signup signup={signup} />}></Route>
         <Route exact path="/users/:username" element={<Profile username="username" />}></Route>
       </Routes>
     </div>
