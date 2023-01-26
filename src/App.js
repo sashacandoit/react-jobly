@@ -48,7 +48,7 @@ function App() {
     } catch (err) {
       console.error("failed signup", err);
       return { success: false, err };
-    };
+    }
   };
 
   /**Site-wide login
@@ -64,7 +64,7 @@ function App() {
     } catch (err) {
       console.error("failed login", err);
       return { success: false, err };
-    };
+    }
   };
 
 

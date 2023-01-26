@@ -5,7 +5,8 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
-import { Container } from "@mui/system";
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
 
 
 const Signup = ({ signup }) => {
@@ -35,68 +36,72 @@ const Signup = ({ signup }) => {
 
 
   return (
-    <Container maxWidth="sm">
-      <Typography variant="h2" gutterBottom>
-        Sign Up
-      </Typography>
-      <form id="signup-form" onSubmit={handleSubmit}>
-        <TextField
-          id="email-input"
-          name="email-input"
-          label="Email Address"
-          type="email"
-          variant="filled"
-          onChange={handleChange}
-          className="login-form-input"
-        />
-        <TextField
-          id="username-input"
-          name="username-input"
-          label="Username"
-          variant="filled"
-          onChange={handleChange}
-          className="login-form-input"
-        />
-        <TextField
-          id="password-input"
-          name="password-input"
-          label="Password"
-          type="password"
-          autoComplete="current-password"
-          variant="filled"
-          onChange={handleChange}
-          className="login-form-input"
-        />
+    <>
+      <CssBaseline />
+      <Container maxWidth="sm">
+        <Typography variant="h2" gutterBottom>
+          Sign Up
+        </Typography>
+        <form className="signup-form" onSubmit={handleSubmit}>
 
-        <TextField
-          id="first-name-input"
-          name="first-name-input"
-          label="First Name"
-          variant="filled"
-          onChange={handleChange}
-          className="login-form-input"
-        />
+          <input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            className="signup-form-input"
+            value={formData.email}
+            onChange={handleChange}
+          />
 
-        <TextField
-          id="last-name-input"
-          name="last-name-input"
-          label="Last Name"
-          variant="filled"
-          onChange={handleChange}
-          className="login-form-input"
-        />
+          <input
+            id="username"
+            type="text"
+            name="username"
+            placeholder="Username"
+            className="signup-form-input"
+            value={formData.username}
+            onChange={handleChange}
+          />
 
-        {formErrors.length
-          ? <Alert variant="outlined" severity="error" messages={formErrors} />
-          : null
-        }
+          <input
+            id="password"
+            type="password"
+            name="password"
+            placeholder="Password"
+            className="signup-form-input"
+            value={formData.password}
+            onChange={handleChange}
+          />
 
-        <Button
-          type="submit"
-          variant="outlined"
-          size="large">Sign Up</Button>
-      </form>
-    </Container>
+          <input
+            id="firstName"
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            className="signup-form-input"
+            value={formData.firstName}
+            onChange={handleChange}
+          />
+
+          <input
+            id="lastName"
+            type="text"
+            name="lasttName"
+            placeholder="Last Name"
+            className="signup-form-input"
+            value={formData.lastName}
+            onChange={handleChange}
+          />
+
+          <button type="submit" className="signup-form-submit">
+            Sign Up
+          </button>
+
+        </form>
+      </Container>
+    </>
+    
   );
 }
 
