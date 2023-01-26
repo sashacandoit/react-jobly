@@ -19,8 +19,8 @@ const Signup = ({ signup }) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    let result = await signup(formData.username, formData.password, formData.firstName, formData.lastName, formData.email)
-    console.log(result)
+    let result = await signup(formData)
+    console.log(formData)
     if (result.success) {
       navigate("/companies");
     } else {
@@ -87,7 +87,7 @@ const Signup = ({ signup }) => {
           <input
             id="lastName"
             type="text"
-            name="lasttName"
+            name="lastName"
             placeholder="Last Name"
             className="signup-form-input"
             value={formData.lastName}
