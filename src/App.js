@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import NavRoutes from "./navRoutes/NavRoutes"
 import NavBar from "./navBar/NavBar";
-import "./App.css"
+// import "./App.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 import JoblyApi from "./api";
 import jwt from "jsonwebtoken";
 import useLocalStorage from "./hooks/useLocalStorage";
+import UserContext from "./auth/UserContext"
+
 export const TOKEN_ID = "jobly-token"
 
 function App() {
@@ -67,19 +70,31 @@ function App() {
     }
   };
 
+  /**Site-wide logout
+   * 
+   * removes token from local storage
+   */
+
+  async function logout() {
+    setCurrentUser(null);
+    setToken(null);
+  };
+
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <BrowserRouter>
-          <NavBar />
-          <main>
-            <NavRoutes login={login} signup={signup} />
-          </main>
-          
-        </BrowserRouter>
-      </header>
-    </div>
+    <UserContext.Provider value={{currentUser, setCurrentUser}}>
+      <div className="App">
+        <header className="App-header">
+          <BrowserRouter>
+            <NavBar logout={logout} />
+            <main>
+              <NavRoutes login={login} signup={signup} />
+            </main>
+
+          </BrowserRouter>
+        </header>
+      </div>
+    </UserContext.Provider>
   );
 }
 

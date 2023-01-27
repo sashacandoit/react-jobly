@@ -4,6 +4,7 @@ import "./Signup.css"
 import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
+import Alert from '@mui/material/Alert';
 
 
 const Signup = ({ signup }) => {
@@ -40,6 +41,11 @@ const Signup = ({ signup }) => {
           Sign Up
         </Typography>
         <form className="signup-form" onSubmit={handleSubmit}>
+
+          {formErrors.length
+            ? <Alert variant="outlined" severity="error" messages={formErrors} />
+            : null
+          }
 
           <input
             id="email"
