@@ -1,0 +1,31 @@
+.home-title {
+  font-weight: lighter;
+  font-size: 60px;
+}
+
+.home-col {
+  text-align: center;
+}
+
+.home-container {
+  padding: 10em 4em;
+}
+
+.home-row {
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+.home-button-row {
+  padding: 4em 10em;
+  text-align: center;
+}
+
+.home-button-col {
+  margin: 1em;
+}
+
+.home-button {
+  width: 100%;
+}
+

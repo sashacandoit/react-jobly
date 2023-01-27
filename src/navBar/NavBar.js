@@ -9,11 +9,9 @@ const NavBar = ({ logout }) => {
 
   const loggedInNav = () => {
     return (
-      <>
-        <NavItem>
-            <NavLink >Log Out {currentUser.username}</NavLink>
-          </NavItem>
-      </>
+      <NavItem>
+        <NavLink href="/" onClick={logout} >Log Out {currentUser.username}</NavLink>
+      </NavItem>
     )
   }
 
@@ -34,9 +32,15 @@ const NavBar = ({ logout }) => {
   return (
     <Navbar color="dark" dark="true" expand="md">
       <Nav className="ml-auto" navbar>
-        <NavbarBrand href="/">
+        <NavbarBrand className="navbar-brand-link" href="/">
           Jobly
         </NavbarBrand>
+        <NavItem className="nav-links-lg">
+          <NavLink href="/companies">Companies</NavLink>
+        </NavItem>
+        <NavItem className="nav-links-lg">
+          <NavLink href="/jobs">Jobs</NavLink>
+        </NavItem>
       </Nav>
       <Nav className="ml-auto nav-links-sm" navbar>
         {currentUser ? loggedInNav() : loggedOutNav()}

@@ -1,3 +1,12 @@
 .nav-links-sm li {
-  font-size: smaller;
+  font-size: 14px;
+}
+
+.navbar-brand-link {
+  font-weight: bold;
+  font-size: 24px !important;
+}
+
+.nav-links-lg {
+  font-size: 20px !important;
 }
