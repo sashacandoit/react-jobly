@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
 import JoblyApi from "../api";
-import JobCardList from "../jobs/JobCardList"
+// import JobCardList from "../jobs/JobCardList"
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';

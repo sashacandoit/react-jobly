@@ -30,9 +30,8 @@ const Companies = () => {
           spacing={2}
           columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           {companies.map(c => (
-            <Grid item xs={3}>
+            <Grid key={c.handle} item xs={3}>
               <CompanyCard
-                key={c.handle}
                 name={c.name}
                 handle={c.handle}
                 description={c.description}

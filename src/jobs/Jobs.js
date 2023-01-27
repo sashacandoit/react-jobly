@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import JoblyApi from "../api";
 import JobCardList from "./JobCardList"
-import Grid from '@mui/material/Grid';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 

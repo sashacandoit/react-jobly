@@ -1,11 +1,9 @@
 import React, {useState} from "react"
 import { useNavigate } from "react-router-dom";
 import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import "./Login.css"
-import { Container } from "@mui/system";
-
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
 
 const Login = ({ login }) => {
   
@@ -17,7 +15,7 @@ const Login = ({ login }) => {
 
   async function handleSubmit (e) {
     e.preventDefault();
-    let result = await login(formData.username, formData.password)
+    let result = await login(formData)
     if (result.success) {
       navigate("/companies");
     } else {
@@ -30,35 +28,39 @@ const Login = ({ login }) => {
     setFormData(login => ({...login, [name]:value}))
   }
 
-
-
   return (
-    <Container maxWidth="sm">
-      <Typography variant="h2" gutterBottom>
-        Login
-      </Typography>
-      <form id="login-form" onSubmit={handleSubmit}>
-        <TextField
-          id="username-input"
-          name="username-input"
-          label="Username"
-          variant="filled"
-          onChange={handleChange}
-          className="login-form-input"
-        />
-        <TextField
-          id="password-input"
-          name="password-input"
-          label="Password"
-          type="password"
-          autoComplete="current-password"
-          variant="filled"
-          onChange={handleChange}
-          className="login-form-input"
-        />
-        <Button onSubmit={handleSubmit} variant="outlined" size="large">Login</Button>
+    <>
+      <CssBaseline />
+      <Container maxWidth="sm">
+        <Typography variant="h2" gutterBottom>
+          Login
+        </Typography>
+      <form className="login-form" onSubmit={handleSubmit}>
+          <input
+            id="username"
+            type="text"
+            name="username"
+            placeholder="Username"
+            className="login-form-input"
+            value={formData.username}
+            onChange={handleChange}
+          />
+          <input
+            id="password"
+            type="password"
+            name="password"
+            placeholder="Password"
+            className="login-form-input"
+            value={formData.password}
+            onChange={handleChange}
+          />
+
+          <button type="submit" className="login-form-submit">
+            Login
+          </button>
       </form>
-    </Container>
+      </Container>
+     </> 
   );
 }
 
