@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from "react";
-import { Route, useNavigate, Outlet } from "react-router-dom";
+import React, { useContext } from "react";
+import { Route, Navigate } from "react-router-dom";
 import UserContext from "../auth/UserContext";
 
 /** Higher-Order Component for private routes.
@@ -8,18 +8,20 @@ import UserContext from "../auth/UserContext";
 * If no current user, redirects to login form.
 */
 
-function PrivateRoute({ exact, path, routes }) {
+function PrivateRoute({exact, path, children}) {
   const { currentUser } = useContext(UserContext);
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!currentUser) {
-      return navigate("/login");
-    }
-  }, [])
+  if (!currentUser) {
+    console.log("no user logged in")
+    return <Navigate replace to="/login" />
+  }
+  
+  console.log(`user logged in: ${currentUser.username}`)
 
   return (
-    <Outlet />
+    <Route exact={exact} path={path}>
+      {children}
+    </Route>
   );
 }
 

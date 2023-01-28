@@ -17,7 +17,7 @@ const Login = ({ login }) => {
     e.preventDefault();
     let result = await login(formData)
     if (result.success) {
-      navigate("/companies");
+      navigate("/");
     } else {
       setFormErrors(result.errors);
     }

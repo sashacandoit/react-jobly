@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import NavRoutes from "./navRoutes/NavRoutes"
 import NavBar from "./navBar/NavBar";
-// import "./App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import JoblyApi from "./api";
 import jwt from "jsonwebtoken";
@@ -21,7 +20,7 @@ function App() {
    * Will re-run when user logs out.
    */
 
-  useEffect(function loadUserInfo() {
+  useEffect(function loadUser() {
     async function getCurrUser() {
       if (token) {
         try {
@@ -82,19 +81,20 @@ function App() {
 
 
   return (
-    <UserContext.Provider value={{currentUser, setCurrentUser}}>
+    
       <div className="App">
         <header className="App-header">
-          <BrowserRouter>
+        <BrowserRouter>
+          <UserContext.Provider value={{ currentUser, setCurrentUser }}>
             <NavBar logout={logout} />
             <main>
               <NavRoutes login={login} signup={signup} />
             </main>
-
+          </UserContext.Provider>
           </BrowserRouter>
         </header>
       </div>
-    </UserContext.Provider>
+    
   );
 }
 

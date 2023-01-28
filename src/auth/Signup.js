@@ -20,7 +20,7 @@ const Signup = ({ signup }) => {
     let result = await signup(formData)
     console.log(formData)
     if (result.success) {
-      navigate("/companies");
+      navigate("/");
     } else {
       setFormErrors(result.errors);
     }
