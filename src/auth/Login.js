@@ -1,9 +1,8 @@
 import React, {useState} from "react"
 import { useNavigate } from "react-router-dom";
-import Typography from '@mui/material/Typography';
+import { Typography, CssBaseline, Container } from '@mui/material';
 import "./Login.css"
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
+
 
 const Login = ({ login }) => {
   

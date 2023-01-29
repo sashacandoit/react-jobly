@@ -30,7 +30,7 @@ const NavBar = ({ logout }) => {
 
 
   return (
-    <Navbar color="dark" dark="true" expand="md">
+    <Navbar color="dark" dark={true} expand="md">
       <Nav className="ml-auto" navbar>
         <NavbarBrand className="navbar-brand-link" href="/">
           Jobly

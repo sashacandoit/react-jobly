@@ -1,10 +1,7 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import "./Signup.css"
-import Typography from '@mui/material/Typography';
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
-import Alert from '@mui/material/Alert';
+import { Typography, CssBaseline, Container, Alert } from '@mui/material';
 
 
 const Signup = ({ signup }) => {

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react"
 import JoblyApi from "../api";
 import CompanyCard from "./CompanyCard"
-import Grid from '@mui/material/Grid'; 
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
+import { Grid, CssBaseline, Container } from '@mui/material'; 
 import "./Companies.css"
 
 const Companies = () => {

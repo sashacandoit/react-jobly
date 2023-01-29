@@ -1,10 +1,8 @@
 import React, { useState, useContext } from "react";
 import JoblyApi from "../api";
 import UserContext from "../auth/UserContext";
-import Typography from '@mui/material/Typography';
+import { Typography, CssBaseline, Container } from '@mui/material';
 import "./ProfileForm.css"
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
 
 const ProfileForm = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);

@@ -1,34 +1,47 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
+import React, { useContext } from "react";
+import UserContext from "../auth/UserContext"
+import "./JobCard.css"
+import { Card, CardContent, Typography, Button, Chip, CardActions } from '@mui/material';
+
 
 const JobCard = ({ id, title, salary, equity, company, companyHandle }) => {
+  // console.debug("JobCard", "job=", title);
+  const { hasApplied, applyToJob } = useContext(UserContext);
+
+  const applyButton = () => {
+    return (
+      <Button size="small" color="primary">
+        Apply!
+      </Button>
+    )
+  }
+
+  const alreadyApplied = () => {
+    return (
+      <Chip variant="outline" color="success">
+        Applied
+      </Chip>
+    )
+  }
+
   return (
-    <Card sx={{ minWidth: 25 }}>
+    <Card sx={{ minWidth: 25 }} className="JobCard">
       <CardContent>
-        {/* <CardMedia
-          component="img"
-          height="150"
-          image={company.logoUrl}
-          alt={company.name}
-        /> */}
         <Typography variant="h5" component="div">
           {title}
         </Typography>
-
-        <Typography variant="body2">
-          {salary}
+        <Typography variant="overline">
+          {company}
         </Typography>
-        
-        <Link to={`/companies/${companyHandle}`}>
-          <Typography variant="body2">
-            {company}
-          </Typography>
-        </Link>
-        
+        <Typography variant="body2" color="text.secondary">
+          Salary: {salary} | Equity: {equity}
+        </Typography>
       </CardContent>
+      <CardActions>
+        <Button size="small" color="primary">
+          Apply!
+        </Button>
+      </CardActions>
     </Card>
   )
 }

@@ -1,11 +1,7 @@
 import React, { useContext } from "react"
-import { useParams } from "react-router-dom";
-
 import UserContext from "../auth/UserContext";
 import ProfileForm from "./ProfileForm";
-import Typography from '@mui/material/Typography';
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
+import { Typography, CssBaseline, Container } from '@mui/material';
 import { ListGroup, ListGroupItemHeading, ListGroupItemText } from "reactstrap";
 
 

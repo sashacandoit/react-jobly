@@ -12,8 +12,9 @@ export const TOKEN_ID = "jobly-token"
 
 function App() {
 
-  const [currentUser, setCurrentUser] = useState(null)
-  const [token, setToken] = useLocalStorage(TOKEN_ID)
+  const [currentUser, setCurrentUser] = useState(null);
+  const [applicationIds, setApplicationIds] = useState([]);
+  const [token, setToken] = useLocalStorage(TOKEN_ID);
 
   /**Load User from API
    * Will not run until User logs in and has a token.
@@ -69,32 +70,39 @@ function App() {
     }
   };
 
-  /**Site-wide logout
-   * 
-   * removes token from local storage
-   */
+  /** Site-wide logout - removes token from local storage */
 
   async function logout() {
     setCurrentUser(null);
     setToken(null);
   };
 
+  /** Check if job has been Applied for */
+  function hasApplied(id) {
+    return applicationIds.has(id)
+  }
+
+  /** Apply to Job - makes an API call and updates set of Application IDs in state */
+  function applyToJob(id) {
+    if (hasApplied(id)) return;
+    JoblyApi.applyToJob(currentUser.username, id);
+    setApplicationIds([...applicationIds, id])
+  };
+
 
   return (
-    
-      <div className="App">
-        <header className="App-header">
-        <BrowserRouter>
-          <UserContext.Provider value={{ currentUser, setCurrentUser }}>
-            <NavBar logout={logout} />
-            <main>
-              <NavRoutes login={login} signup={signup} />
-            </main>
-          </UserContext.Provider>
-          </BrowserRouter>
-        </header>
-      </div>
-    
+    <div className="App">
+    <header className="App-header">
+      <BrowserRouter>
+        <UserContext.Provider value={{ currentUser, setCurrentUser, applyToJob, hasApplied }}>
+        <NavBar logout={logout} />
+        <main>
+          <NavRoutes login={login} signup={signup} />
+        </main>
+        </UserContext.Provider>
+      </BrowserRouter>
+    </header>
+  </div>
   );
 }
 

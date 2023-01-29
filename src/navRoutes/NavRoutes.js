@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
+// import UserContext from "../auth/UserContext";
 
 import Home from "../home/Home";
 import Companies from "../companies/Companies";
 import CompanyDetail from "../companies/CompanyDetail";
 
 import Jobs from "../jobs/Jobs";
-import JobDetail from "../jobs/JobDetail";
 
 import Profile from "../profiles/Profile";
 import Login from "../auth/Login";
@@ -29,7 +29,6 @@ function NavRoutes({ login, signup }) {
           element={<CompanyDetail handle="handle" />}>
         </Route>
         <Route exact path="/jobs" element={<Jobs />}></Route>
-        <Route exact path="/jobs/:id" element={<JobDetail />}></Route>
         <Route exact path="/users/:username" element={<Profile username="username" />}></Route>
 
         {/* Protected Routes */}
