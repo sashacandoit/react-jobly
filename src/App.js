@@ -13,7 +13,7 @@ export const TOKEN_ID = "jobly-token"
 function App() {
 
   const [currentUser, setCurrentUser] = useState(null);
-  const [applicationIds, setApplicationIds] = useState([]);
+  const [applicationIds, setApplicationIds] = useState(new Set([]));
   const [token, setToken] = useLocalStorage(TOKEN_ID);
 
   /**Load User from API
@@ -79,14 +79,14 @@ function App() {
 
   /** Check if job has been Applied for */
   function hasApplied(id) {
-    return applicationIds.has(id)
+    return applicationIds.has(id);
   }
 
   /** Apply to Job - makes an API call and updates set of Application IDs in state */
   function applyToJob(id) {
     if (hasApplied(id)) return;
     JoblyApi.applyToJob(currentUser.username, id);
-    setApplicationIds([...applicationIds, id])
+    setApplicationIds(new Set([...applicationIds, id]))
   };
 
 

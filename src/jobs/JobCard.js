@@ -1,16 +1,33 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import UserContext from "../auth/UserContext"
 import "./JobCard.css"
 import { Card, CardContent, Typography, Button, Chip, CardActions } from '@mui/material';
 
 
 const JobCard = ({ id, title, salary, equity, company, companyHandle }) => {
-  // console.debug("JobCard", "job=", title);
+
   const { hasApplied, applyToJob } = useContext(UserContext);
+  const [applied, setApplied] = useState();
+
+  React.useEffect(function updateAppliedStatus() {
+    setApplied(hasApplied(id));
+  }, [id, hasApplied]);
+
+  async function handleApply(e) {
+    if (hasApplied(id)) {
+      return;
+    }
+    applyToJob(id);
+    setApplied(true);
+  }
+  
 
   const applyButton = () => {
     return (
-      <Button size="small" color="primary">
+      <Button
+        color="primary"
+        onClick={handleApply}
+      >
         Apply!
       </Button>
     )
@@ -18,9 +35,9 @@ const JobCard = ({ id, title, salary, equity, company, companyHandle }) => {
 
   const alreadyApplied = () => {
     return (
-      <Chip variant="outline" color="success">
-        Applied
-      </Chip>
+      <Button disabled >
+        Already Applied
+      </Button>
     )
   }
 
@@ -38,9 +55,14 @@ const JobCard = ({ id, title, salary, equity, company, companyHandle }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" color="primary">
+        {/* <Button
+          color="primary"
+          onClick={handleApply}
+          disabled={applied}
+        >
           Apply!
-        </Button>
+        </Button> */}
+        {applied ? alreadyApplied() : applyButton()}
       </CardActions>
     </Card>
   )
