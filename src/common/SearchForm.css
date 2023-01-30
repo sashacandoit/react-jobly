@@ -1,18 +1,18 @@
 .search-form {
   width: 100%;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
   /* margin: 20px 0 20px 0; */
 }
 
 .search-form-input {
-  width: 100%;
-  margin-top: .8em;
+  width: 70%;
   margin-bottom: .8em;
-  padding: 1.2em;
+  padding: 1em;
 }
 
 .search-form-submit {
-  margin-top: 1.2em;
-  padding: 1.2em;
-  width: 13em;
+  padding: 1em;
+  width: 10em;
   float: right;
 }

@@ -3,7 +3,7 @@ import JoblyApi from "../api";
 import SearchForm from "../common/SearchForm"
 
 import CompanyCard from "./CompanyCard"
-import { Grid, CssBaseline, Container } from '@mui/material'; 
+import { Grid, CssBaseline, Container, Box, Typography } from '@mui/material'; 
 import "./Companies.css"
 
 const Companies = () => {
@@ -21,8 +21,12 @@ const Companies = () => {
   return (
     <>
       <CssBaseline />
-      <Container maxWidth="med">
-        <h2 className="Companies-title">Companies List</h2>
+      <Container className="Companies-container" maxWidth="med">
+        <Box className="Companies-header">
+          <Typography variant="h2">
+            Companies List
+          </Typography>
+        </Box>
         <SearchForm searchFor={search} />
         <Grid container
           direction="row"

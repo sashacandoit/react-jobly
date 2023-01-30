@@ -1,3 +1,8 @@
-.Companies-title {
+.Companies-container {
+  margin: 2em 1em;
+}
+
+.Companies-header {
+  margin-bottom: 2em;
   text-align: center;
 }
