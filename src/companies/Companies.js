@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react"
 import JoblyApi from "../api";
+import SearchForm from "../common/SearchForm"
+
 import CompanyCard from "./CompanyCard"
 import { Grid, CssBaseline, Container } from '@mui/material'; 
 import "./Companies.css"
@@ -21,6 +23,7 @@ const Companies = () => {
       <CssBaseline />
       <Container maxWidth="med">
         <h2 className="Companies-title">Companies List</h2>
+        <SearchForm searchFor={search} />
         <Grid container
           direction="row"
           justifyContent="flex-start"
