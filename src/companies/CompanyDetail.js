@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
 import JoblyApi from "../api";
-// import JobCardList from "../jobs/JobCardList"
+import JobCardList from "../jobs/JobCardList"
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 const CompanyDetail = () => {
   const { handle } = useParams();
   const [company, setCompany] = useState([])
+  
 
   useEffect(function getCompanyDetails() {
     async function getCompany() {
@@ -19,6 +20,7 @@ const CompanyDetail = () => {
     getCompany();
   }, [handle]);
 
+  //Why does this print, but the data doesn't work in the component?
   console.log(company.jobs)
 
   return (

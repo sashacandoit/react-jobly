@@ -30,11 +30,13 @@ function NavRoutes({ login, signup }) {
         </Route>
         <Route exact path="/jobs" element={<Jobs />}></Route>
         <Route exact path="/users/:username" element={<Profile username="username" />}></Route>
+        <Route exact path="/companies" element={<Companies />}></Route>
+        
 
         {/* Protected Routes */}
-        <Route exact
-          path="/companies"
-          element={<PrivateRoute><Companies /></PrivateRoute>}/>
+        {/* <Route exact path='/companies' element={<PrivateRoute />}>
+          <Route exact path='/companies' element={<Companies />} />
+        </Route> */}
         
       </Routes>
     </div>
