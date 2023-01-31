@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import UserContext from "../auth/UserContext";
 import ProfileForm from "./ProfileForm";
+import LoadingSpinner from "../common/LoadingSpinner";
 import { Typography, CssBaseline, Container } from '@mui/material';
 import { ListGroup, ListGroupItemHeading, ListGroupItemText } from "reactstrap";
 
@@ -10,6 +11,7 @@ const Profile = () => {
 
   if (!currentUser) {
     console.log("no user logged in")
+    return <LoadingSpinner />
   }
 
   return (
