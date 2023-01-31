@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import { Navbar, NavbarBrand, Nav, NavItem, NavText, NavLink } from "reactstrap";
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 import UserContext from "../auth/UserContext";
 import "./NavBar.css"
 

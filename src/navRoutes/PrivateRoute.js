@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Route, Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import UserContext from "../auth/UserContext";
 
 /** Higher-Order Component for private routes.
