@@ -105,7 +105,7 @@ function App() {
         <UserContext.Provider value={{ currentUser, setCurrentUser, applyToJob, hasApplied }}>
         <NavBar logout={logout} />
         <main>
-          <NavRoutes login={login} signup={signup} />
+          <NavRoutes login={login} signup={signup} logout={logout} />
         </main>
         </UserContext.Provider>
       </BrowserRouter>

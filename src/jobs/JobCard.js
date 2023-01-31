@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import UserContext from "../auth/UserContext"
 import "./JobCard.css"
-import { Card, CardContent, Typography, Button, Chip, CardActions } from '@mui/material';
+import { Card, CardContent, Typography, Button, CardActions } from '@mui/material';
 
 
 const JobCard = ({ id, title, salary, equity, company, companyHandle }) => {
@@ -55,13 +55,6 @@ const JobCard = ({ id, title, salary, equity, company, companyHandle }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        {/* <Button
-          color="primary"
-          onClick={handleApply}
-          disabled={applied}
-        >
-          Apply!
-        </Button> */}
         {applied ? alreadyApplied() : applyButton()}
       </CardActions>
     </Card>

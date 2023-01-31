@@ -1,16 +1,16 @@
 import React, {useContext} from "react";
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
+import { Navbar, NavbarBrand, Nav, NavItem, NavText, NavLink } from "reactstrap";
 import UserContext from "../auth/UserContext";
 import "./NavBar.css"
 
 
-const NavBar = ({ logout }) => {
+const NavBar = () => {
   const { currentUser } = useContext(UserContext);
 
   const loggedInNav = () => {
     return (
       <NavItem>
-        <NavLink href="/" onClick={logout} >Log Out {currentUser.username}</NavLink>
+        <NavLink href={`/users/${currentUser.username}`}>Hi {currentUser.username}</NavLink>
       </NavItem>
     )
   }

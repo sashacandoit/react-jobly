@@ -37,6 +37,7 @@ const ProfileForm = () => {
 
     setCurrentUser(updatedUser);
     console.log("updated")
+    console.log(currentUser.firstName)
   }
 
   const handleChange = (e) => {
