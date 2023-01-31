@@ -16,9 +16,10 @@ const ProfileForm = () => {
   });
 
   async function handleSubmit(e) {
+    e.preventDefault();
     let profileData = {
       firstName: formData.firstName,
-      lastName: formData.firstName,
+      lastName: formData.lastName,
       email: formData.email,
       password: formData.password
     };
@@ -35,6 +36,7 @@ const ProfileForm = () => {
     setFormData(data => ({ ...data, password: "" }));
 
     setCurrentUser(updatedUser);
+    console.log("updated")
   }
 
   const handleChange = (e) => {
@@ -45,8 +47,8 @@ const ProfileForm = () => {
   return (
     <>
       <CssBaseline />
-      <Container maxWidth="sm">
-        <Typography variant="h2" gutterBottom>
+      <Container className="ProfileForm-container" maxWidth="sm">
+        <Typography variant="h4" gutterBottom>
           Update User Info
         </Typography>
         <form className="update-form" onSubmit={handleSubmit}>

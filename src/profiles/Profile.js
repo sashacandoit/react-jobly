@@ -2,8 +2,9 @@ import React, { useContext } from "react"
 import UserContext from "../auth/UserContext";
 import ProfileForm from "./ProfileForm";
 import LoadingSpinner from "../common/LoadingSpinner";
-import { Typography, CssBaseline, Container } from '@mui/material';
-import { ListGroup, ListGroupItemHeading, ListGroupItemText } from "reactstrap";
+import "./Profile.css"
+import { Typography, CssBaseline, Container, Box, Grid } from '@mui/material';
+import { ListGroup, ListGroupItemHeading } from "reactstrap";
 
 
 const Profile = () => {
@@ -17,22 +18,23 @@ const Profile = () => {
   return (
     <>
       <CssBaseline />
-      <Container maxWidth="sm">
-        <Typography variant="h1" gutterBottom>
-          Welcome {currentUser.username}
-        </Typography>
-        <ListGroup>
-          <ListGroupItemHeading>{currentUser.firstName}</ListGroupItemHeading>
-          <ListGroupItemText>First name</ListGroupItemText>
-          <ListGroupItemHeading>{currentUser.lastName}</ListGroupItemHeading>
-          <ListGroupItemText>Last Name</ListGroupItemText>
-          <ListGroupItemHeading>{currentUser.email}</ListGroupItemHeading>
-          <ListGroupItemText>Email Address</ListGroupItemText>
-        </ListGroup>
-      </Container>
-
-      <Container>
-        <ProfileForm />
+      <Container maxWidth="lg" className="Profile-container">
+        <Box className="Profile-box">
+          <Grid container spacing={2} columns={16}>
+            <Grid xs={6}>
+              <Typography variant="h3" gutterBottom>
+                Welcome {currentUser.username}
+              </Typography>
+              <ListGroup>
+                <ListGroupItemHeading>Name: {currentUser.firstName} {currentUser.lastName}</ListGroupItemHeading>
+                <ListGroupItemHeading>Email Address: {currentUser.email}</ListGroupItemHeading>
+              </ListGroup>
+            </Grid>
+            <Grid xs={10}>
+              <ProfileForm />
+            </Grid>
+          </Grid>
+        </Box>
       </Container>
     </>
   )
