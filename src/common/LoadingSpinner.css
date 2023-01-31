@@ -1,0 +1,9 @@
+.LoadingSpinner-container {
+  text-align: center;
+  height: 100vh;
+  padding: 25%;
+}
+
+.LoadingSpinner-loading h5 {
+  display: inline;
+}

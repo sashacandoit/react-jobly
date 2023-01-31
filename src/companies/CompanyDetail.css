@@ -1,0 +1,12 @@
+.CompanyDetail-container {
+  width: 100%;
+}
+
+.CompanyDetail-box {
+  margin-bottom: 5em;
+  margin-top: 2em;
+}
+
+.CompanyDetail-box > h4 {
+  margin-bottom: 1em;
+}

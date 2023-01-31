@@ -4,7 +4,6 @@ import Grid from '@mui/material/Grid';
 
 
 const JobCardList = ({ jobs }) => {
-  console.debug("JobCardList", "jobs=", jobs);
   
   return (
     <Grid container

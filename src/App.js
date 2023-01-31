@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import NavRoutes from "./navRoutes/NavRoutes"
 import NavBar from "./navBar/NavBar";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import LoadingSpinner from "./common/LoadingSpinner";
 import JoblyApi from "./api";
 import jwt from "jsonwebtoken";
 import useLocalStorage from "./hooks/useLocalStorage";
@@ -14,6 +15,7 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState(null);
   const [applicationIds, setApplicationIds] = useState(new Set([]));
+  const [dataLoaded, setDataLoaded] = useState(false);
   const [token, setToken] = useLocalStorage(TOKEN_ID);
 
   /**Load User from API
@@ -33,7 +35,11 @@ function App() {
           setCurrentUser(null)
         }
       }
+      setDataLoaded(true);
     }
+    // Set dataLoaded to false while async getCurrUser runs
+    // set back to false once data is fetched or if error occurs
+    setDataLoaded(false)
     getCurrUser();
   }, [token])
 
@@ -88,6 +94,8 @@ function App() {
     JoblyApi.applyToJob(currentUser.username, id);
     setApplicationIds(new Set([...applicationIds, id]))
   };
+
+  if (!dataLoaded) return <LoadingSpinner />
 
 
   return (
