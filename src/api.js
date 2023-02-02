@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "https://jobly-backend-2.onrender.com";
+// const BASE_URL = process.env.REACT_APP_BASE_URL || "https://jobly-backend-2.onrender.com";
+
+const BASE_URL = "https://jobly-backend-2.onrender.com";
 
 /** API Class.
  *
