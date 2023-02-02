@@ -24,7 +24,7 @@ const ProfileForm = () => {
       password: formData.password
     };
 
-    let username = formData.username;
+    let username = currentUser.username;
     let updatedUser;
 
     try {
