@@ -19,6 +19,7 @@ const Login = ({ login }) => {
       navigate("/");
     } else {
       setFormErrors(result.errors);
+      console.log(formErrors)
     }
   }
 
